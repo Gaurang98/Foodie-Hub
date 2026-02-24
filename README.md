@@ -79,7 +79,7 @@ A modern, responsive food delivery web application, featuring a beautiful UI and
 ## 👨‍💻 Author
 
 **Gaurang Agarwal**
-- GitHub: [@Gaurang98](https://github.com/Gaurang98)
+- GitHub: [Gaurang98](https://github.com/Gaurang98)
 - Project Link: [Github Link](https://github.com/Gaurang98/Foodie-Hub)
 
 ---
