@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Hub - Delicious Food Delivered Fresh</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" onclick="showSection('home')">🍕 Foodie Hub</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="#" class="nav-link active" data-section="home" onclick="showSection('home')">Home</a>
+                <a href="#" class="nav-link" data-section="menu" onclick="showSection('menu')">Menu</a>
+                <a href="#" class="nav-link" data-section="about" onclick="showSection('about')">About</a>
+                <a href="#" class="nav-link" data-section="contact" onclick="showSection('contact')">Contact</a>
+                <a href="#" class="nav-link cart-link" data-section="cart" onclick="showSection('cart')">
+                    🛒 Cart <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+                <div class="profile-dropdown">
+                    <button class="profile-btn" onclick="toggleProfile()">👤 Profile</button>
+                    <div class="dropdown-menu" id="profileDropdown">
+                        <a href="#" class="dropdown-item" onclick="showSection('profile')">👤 My Profile</a>
+                        <a href="#" class="dropdown-item" onclick="showSection('profile')">📋 Order History</a>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item logout-btn" onclick="logout()">🚪 Logout</button>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-toggle" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to Foodie Hub</h1>
+                <p class="hero-subtitle">Delicious food delivered fresh to your doorstep</p>
+                <a href="#" class="cta-button" onclick="showSection('menu')">Order Now</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Delicious food">
+            </div>
+        </div>
+
+        <section class="features">
+            <h2>Why Choose Foodie Hub?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Get your food delivered hot and fresh in under 30 minutes</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <h3>Quality Food</h3>
+                    <p>Made with the finest ingredients and prepared by expert chefs</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Great Prices</h3>
+                    <p>Affordable prices without compromising on quality and taste</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="popular-preview">
+            <h2>Popular Items</h2>
+            <div class="popular-grid" id="popularItems">
+
+            </div>
+            <div class="popular-cta">
+                <a href="#" class="secondary-button" onclick="showSection('menu')">View Full Menu</a>
+            </div>
+        </section>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section">
+        <div class="menu-header">
+            <h1>Our Menu</h1>
+            <p>Delicious food made with love and fresh ingredients</p>
+        </div>
+        
+        <div class="menu-categories">
+            <button class="category-btn active" data-category="all" onclick="filterMenu('all')">All Items</button>
+            <button class="category-btn" data-category="pizza" onclick="filterMenu('pizza')">🍕 Pizza</button>
+            <button class="category-btn" data-category="burgers" onclick="filterMenu('burgers')">🍔 Burgers</button>
+            <button class="category-btn" data-category="pasta" onclick="filterMenu('pasta')">🍝 Pasta</button>
+            <button class="category-btn" data-category="desserts" onclick="filterMenu('desserts')">🍰 Desserts</button>
+        </div>
+        
+        <div class="menu-items" id="menuItems">
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="about-hero">
+            <h1>About Foodie Hub</h1>
+            <p>Bringing delicious food to your doorstep since 2020</p>
+        </div>
+
+        <div class="about-content">
+            <section class="about-story">
+                <div class="story-text">
+                    <h2>Our Story</h2>
+                    <p>Founded in 2020, Foodie Hub started with a simple mission: to bring restaurant-quality food directly to your home. What began as a small local delivery service has grown into a beloved food hub that serves thousands of satisfied customers daily.</p>
+                    <p>We believe that great food brings people together, and we're passionate about delivering not just meals, but memorable dining experiences that you can enjoy in the comfort of your home.</p>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80" alt="Restaurant kitchen">
+                </div>
+            </section>
+
+            <section class="about-values">
+                <h2>Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🌟</div>
+                        <h3>Quality First</h3>
+                        <p>We source only the finest ingredients and work with skilled chefs to ensure every meal meets our high standards.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">⚡</div>
+                        <h3>Speed & Reliability</h3>
+                        <p>Fast delivery times without compromising quality. Your food arrives hot, fresh, and on time.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">❤️</div>
+                        <h3>Customer Care</h3>
+                        <p>Your satisfaction is our priority. We're always here to ensure you have the best experience possible.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🌱</div>
+                        <h3>Sustainability</h3>
+                        <p>We're committed to eco-friendly practices, from sustainable packaging to supporting local suppliers.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="contact-hero">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you! Get in touch with us.</p>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-section">
+                    <h2>Get In Touch</h2>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h3>Address</h3>
+                            <p>123 Food Street<br>Taste City, TC 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>(555) 123-FOOD<br>(555) 123-3663</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>hello@foodiehub.com<br>support@foodiehub.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-section">
+                <h2>Send us a Message</h2>
+                <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="cart" class="section">
+        <div class="cart-header">
+            <h1>Your Cart</h1>
+            <p><span id="totalItems">0</span> items in your cart</p>
+        </div>
+
+        <div id="cartContent">
+
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="section">
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <div class="avatar-circle" id="avatarInitials">JD</div>
+                </div>
+                <div class="profile-info">
+                    <h1>My Profile</h1>
+                    <p>Member since January 2024</p>
+                </div>
+            </div>
+
+            <section class="profile-section">
+                <div class="section-header">
+                    <h2>Personal Information</h2>
+                    <button class="edit-btn" id="editBtn" onclick="toggleEditProfile()">Edit Profile</button>
+                </div>
+
+                <div class="info-grid" id="profileInfo">
+
+                </div>
+            </section>
+
+            <section class="profile-section">
+                <h2>Order History</h2>
+                <div class="orders-list" id="orderHistory">
+
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Foodie Hub. All rights reserved. | Made with ❤️</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
